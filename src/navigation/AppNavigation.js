@@ -4,10 +4,20 @@ import {MainScreen} from '../screens/MainScreen'
 import {PostScreen} from '../screens/PostScreen'
 
 const PostNavigator = createStackNavigator({
-  Main: MainScreen,
+  Main: {
+    screen: MainScreen,
+    navigationOptions: {
+      title: 'Welcome'
+    }
+  },
   Post: {
-    screen: PostScreen
+    screen: PostScreen,
+    navigationOptions: {
+      title: 'Post Screen'
+    }
   }
+}, {
+  initialRouteName: 'Main'
 })
 
 export const AppNavigation = createAppContainer(PostNavigator)
