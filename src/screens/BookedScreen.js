@@ -3,7 +3,7 @@ import {View,Text, StyleSheet} from 'react-native'
 
 export const BookedScreen = ({}) => {
   return (
-    <View>
+    <View style={styles.center}>
       <Text>BookedScreen</Text>
     </View>
   )
