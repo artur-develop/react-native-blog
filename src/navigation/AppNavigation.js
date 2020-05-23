@@ -14,7 +14,10 @@ const PostNavigator = createStackNavigator({
   Post: {
     screen: PostScreen,
     navigationOptions: {
-      title: 'Post Screen'
+      title: 'Post Screen',
+      headerStyle: {
+        backgroundColor: '#786969'
+      }
     }
   }
 }, {
