@@ -2,11 +2,12 @@ import React from 'react'
 import {View,Text, StyleSheet} from 'react-native'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import {AppHeaderIcon} from '../components/AppHeaderIcon'
+import {THEME} from "../theme";
 
 export const AboutScreen = ({}) => {
   return (
     <View style={styles.center}>
-      <Text>AboutScreen</Text>
+      <Text>Version 1.0.0</Text>
     </View>
   )
 }

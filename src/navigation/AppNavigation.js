@@ -91,10 +91,24 @@ const BottomNavigator = Platform.OS === 'android'
 
 const AboutNavigator = createStackNavigator({
   About: AboutScreen
+},{
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: THEME.MAIN_COLOR
+    },
+    headerTintColor: '#fff'
+  }
 })
 
 const CreateNavigator = createStackNavigator({
   Create: CreateScreen
+}, {
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: THEME.MAIN_COLOR
+    },
+    headerTintColor: '#fff'
+  }
 })
 
 const MainNavigator = createDrawerNavigator({
@@ -105,16 +119,16 @@ const MainNavigator = createDrawerNavigator({
       // drawerIcon: <Ionicons name='ios-home' />
     }
   },
-  About: {
-    screen: AboutNavigator,
-    navigationOptions: {
-      drawerLabel: 'About app'
-    }
-  },
   Create: {
     screen: CreateNavigator,
     navigationOptions: {
       drawerLabel: 'Create post'
+    }
+  },
+  About: {
+    screen: AboutNavigator,
+    navigationOptions: {
+      drawerLabel: 'About app'
     }
   }
 }, {
