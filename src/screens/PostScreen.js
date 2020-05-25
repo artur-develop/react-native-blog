@@ -52,7 +52,7 @@ PostScreen.navigationOptions = ({navigation}) => {
   const booked = navigation.getParam('booked')
   const iconName = booked ? 'ios-star' : 'ios-star-outline'
   return {
-    headerTitle: `Пост ${postId}`,
+    headerTitle: `Post ${postId}`,
     headerRight: (
       <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
         <Item
