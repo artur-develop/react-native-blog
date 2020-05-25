@@ -22,7 +22,7 @@ export const MainScreen = ({navigation}) => {
   )
 }
 
-MainScreen.navigationOptions = {
+MainScreen.navigationOptions = ({navigation}) => ({
   headerTitle: 'My Blog',
   headerRight: (
     <HeaderButtons HeaderButtonComponent={AppHeaderIcon}>
@@ -38,11 +38,11 @@ MainScreen.navigationOptions = {
       <Item
         title='Toggle Drawer'
         iconName='ios-menu'
-        onPress={() => console.log('Press photo')}
+        onPress={() => navigation.toggleDrawer()}
       />
     </HeaderButtons>
   )
-}
+})
 
 const styles = StyleSheet.create({
   wrapper: {
