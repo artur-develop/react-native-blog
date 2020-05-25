@@ -89,15 +89,23 @@ const BottomNavigator = Platform.OS === 'android'
       }
 })
 
+const AboutNavigator = createStackNavigator({
+  About: AboutScreen
+})
+
+const CreateNavigator = createStackNavigator({
+  Create: CreateScreen
+})
+
 const MainNavigator = createDrawerNavigator({
   PostTabs: {
     screen: BottomNavigator
   },
   About: {
-    screen: AboutScreen
+    screen: AboutNavigator
   },
   Create: {
-    screen: CreateScreen
+    screen: CreateNavigator
   }
 })
 
