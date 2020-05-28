@@ -1,26 +1,31 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import {View,Text, StyleSheet, TextInput,
   Image, Button, ScrollView, TouchableWithoutFeedback, Keyboard} from 'react-native'
 import {useDispatch} from 'react-redux'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import {AppHeaderIcon} from '../components/AppHeaderIcon'
+import {PhotoPicker} from '../components/PhotoPicker'
 import {addPost} from '../store/actions/post'
 import {THEME} from '../theme'
 
 export const CreateScreen = ({navigation}) => {
   const dispatch = useDispatch()
   const [text, setText] = useState('')
+  const imgRef = useRef()
 
-  const img = 'https://i1.wp.com/paikea.ru/wp-content/uploads/2018/05/savannah-usa-04.jpg'
   const createPostHandler = () => {
     const post = {
       date: new Date().toJSON(),
       text,
-      img,
+      img: imgRef.current,
       booked: false
     }
     dispatch(addPost(post))
     navigation.navigate('Main')
+  }
+
+  const photoPickHandler = uri => {
+    imgRef.current = uri
   }
 
   return (
@@ -35,14 +40,12 @@ export const CreateScreen = ({navigation}) => {
             onChangeText={setText}
             multiline
           />
-          <Image
-            style={{width: '100%', height: 200, marginBottom: 10}}
-            source={{uri: img}}
-          />
+          <PhotoPicker onPick={photoPickHandler} />
           <Button
             title='Create post'
             color={THEME.MAIN_COLOR}
             onPress={createPostHandler}
+            disabled={!text}
           />
         </View>
       </TouchableWithoutFeedback>
