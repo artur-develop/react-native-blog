@@ -5,12 +5,12 @@ import {DATA} from '../data'
 import {THEME} from '../theme'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import {AppHeaderIcon} from '../components/AppHeaderIcon'
-import {toggleBooked} from '../store/actions/post'
+import {removePost, toggleBooked} from '../store/actions/post'
 
 export const PostScreen = ({navigation}) => {
   const dispatch = useDispatch()
   const postId = navigation.getParam('postId')
-  const post = DATA.find(p => p.id === postId)
+  const post = useSelector(state => state.post.allPosts.find(p => p.id === postId))
 
   const booked = useSelector(state =>
     state.post.bookedPosts.some(post => post.id === postId)
@@ -40,7 +40,10 @@ export const PostScreen = ({navigation}) => {
         },
         {
           text: 'Remove',
-          onPress: () => console.log('OK Pressed'),
+          onPress () {
+            navigation.navigate('Main')
+            dispatch(removePost(postId))
+          },
           style: 'destructive'
         }
       ],
