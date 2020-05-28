@@ -1,7 +1,6 @@
 import React, {useEffect, useCallback} from 'react'
 import {View,Text, StyleSheet, Image, Button, ScrollView, Alert} from 'react-native'
 import {useDispatch, useSelector} from 'react-redux'
-import {DATA} from '../data'
 import {THEME} from '../theme'
 import {HeaderButtons, Item} from 'react-navigation-header-buttons'
 import {AppHeaderIcon} from '../components/AppHeaderIcon'
