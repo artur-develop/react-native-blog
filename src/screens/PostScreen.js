@@ -20,8 +20,8 @@ export const PostScreen = ({navigation}) => {
   }, [booked])
 
   const toggleHandler = useCallback(() => {
-    dispatch(toggleBooked(postId))
-  }, [dispatch, postId])
+    dispatch(toggleBooked(post))
+  }, [dispatch, post])
 
   useEffect(() => {
     navigation.setParams({toggleHandler})
@@ -50,8 +50,9 @@ export const PostScreen = ({navigation}) => {
     )
   }
 
+  console.log(post)
   return (
-    <ScrollView>
+    post ? <ScrollView>
       <Image source={{uri: post.img}} style={styles.image}/>
       <View style={styles.textWrap}>
         <Text style={styles.title}>{post.text}</Text>
@@ -61,7 +62,7 @@ export const PostScreen = ({navigation}) => {
         color={THEME.DANGER_COLOR}
         onPress={removeHandler}
       />
-    </ScrollView>
+    </ScrollView> : null
   )
 }
 
